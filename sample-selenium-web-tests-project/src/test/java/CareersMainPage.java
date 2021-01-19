@@ -1,48 +1,80 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CareersMainPage extends PageObject {
+import java.util.ArrayList;
+import java.util.List;
 
-    @FindBy(css = ".box-box.margin-bottom-xs-ng.border-radius-round.object-fit-cover.theme-default")
+public class CareersMainPage extends PageObject {
+    @FindBy(css = ".box-box.margin-bottom-xs-ng.border-radius-round")
     private WebElement nyButton;
 
     @FindBy(xpath = "//input[@placeholder='Search']")
     private WebElement searchField;
 
-    @FindBy(css = "div.box-box.sc-kEYyzF.ktWzhX.flex.box-with-flex.padding-right-sm-ng.theme-default > h1")
+    @FindBy(css = "div.box-box.sc-kEYyzF > h1")
     private WebElement positionBox;
+
+    @FindBy(css = "div.box-box.sc-kEYyzF.dwHrpj > p")
+    private List<WebElement> locationBox;
 
     @FindBy(css = ".box-box.sc-eHgmQL > div")
     private WebElement locationsDropDown;
 
-    @FindBy(css = ".box-box.sc-eHgmQL > div > div") //TODO: check this locator
+    @FindBy(css = ".box-box.sc-eHgmQL > div > div")
     private WebElement departmentsDropDown;
 
-    protected CareersMainPage(WebDriver driver) {
+    @FindBy(css="div.box-box.header.hidden-xs.flex.box-with-flex.flex-direction-column > h1")
+    private WebElement heading;
+
+    @FindBy(css="body > div.react-tiny-popover-container > section")
+    private WebElement optionsContainer;
+
+    @FindBy(css = "div.box-box.sc-cvbbAY.hnBfZS > div > h1")
+            private WebElement errorHeading;
+
+    CareersMainPage(WebDriver driver) {
         super(driver);
     }
 
-    protected void viewNYLocation() {
-            this.nyButton.click();
+    void navigateToNYLocations() {
+        this.nyButton.click();
     }
 
-    protected void search(String text) {
+    void search(String text) {
         this.searchField.click();
         this.searchField.sendKeys(text);
         searchField.click();
         this.searchField.sendKeys(Keys.ENTER);
     }
 
-    public String getPositionHeading(){
-        String heading = this.positionBox.getText();
-        return heading;
+    String getPositionHeading() {
+        return this.positionBox.getText();
     }
 
-    public void selectLocationsDropDown(){
+    String getPageHeading(){
+        return this.heading.getText();
+    }
+
+    String getErrorMessageText(){
+        return this.errorHeading.getText();
+    }
+
+    void selectLocationsDropDown(int optionIndex) {
         this.locationsDropDown.click();
+        List<WebElement> options = this.optionsContainer.findElements(By.cssSelector("div"));
+        options.get(optionIndex).click();
     }
 
+    ArrayList<String> getAllPositionsLocationList() {
+        ArrayList<String> locations = new ArrayList<>();
 
+        for (WebElement aLocationBox : this.locationBox) {
+            locations.add(aLocationBox.getText());
+        }
+
+        return locations;
+    }
 }

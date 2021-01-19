@@ -3,7 +3,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageObject extends ApplicationManager{
 
-    public PageObject(WebDriver driver){
+    PageObject(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 }
