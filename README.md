@@ -8,11 +8,10 @@ Sample Java Selenium project for test automation, covering UI and API testing of
 * Dependency injection
 * Page Object pattern
 * Common web page interaction methods
-* Common api interaction methods
 
 ## Tools
 
-* Gradje
+* Gradle
 * TestNG
 * Java SE 
 * Selenium Webdriver
@@ -32,19 +31,15 @@ In order for the API tests to pass, you may need to set the VM property: -Dtestn
 
 
 ## UI tests list: 
-- openCareersPage
-
-- navigateToNYCareersPage
-
-- searchFunctionalityTest
-
-- searchFunctionalityNegativeTest
-
-- locationsDropDownTest
+* openCareersPage
+* navigateToNYCareersPage
+* searchFunctionalityTest
+* searchFunctionalityNegativeTest
+* locationsDropDownTest
 
 API tests list:
-makeSureThePageIsUp
-verifyURL
-verifyInvalidURL
+* makeSureThePageIsUp
+* verifyURL
+* verifyInvalidURL
 
 
