@@ -29,7 +29,7 @@ public class UITests extends ApplicationManager {
 
 
     @Test(priority = 2)
-    public void searchFunctionalityTest() throws Exception {
+    public void searchFunctionalityTest() {
         careersPage = new CareersMainPage(driver);
 
         careersPage.search("QA ");
@@ -53,7 +53,7 @@ public class UITests extends ApplicationManager {
     }
 
     @Test(priority = 4)
-    public void locationsDropDownTest() throws Exception {
+    public void locationsDropDownTest() {
         careersPage = new CareersMainPage(driver);
 
         careersPage.selectLocationsDropDown(1);
