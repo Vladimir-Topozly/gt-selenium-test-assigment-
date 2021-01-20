@@ -3,13 +3,11 @@ import org.testng.annotations.Test;
 import java.util.stream.IntStream;
 
 public class UITests extends ApplicationManager {
-    private String basicUrl = "https://x.gloat.com/careers/";
 
     @Test(priority = 0)
     public void openCareersPage() {
         careersPage = new CareersMainPage(driver);
 
-        navigateTo(basicUrl);
         String heading = careersPage.getPageHeading();
 
         Assert.assertEquals(heading, "All locations");
@@ -18,12 +16,13 @@ public class UITests extends ApplicationManager {
     @Test(priority = 1)
     public void navigateToNYCareersPage() {
         careersPage = new CareersMainPage(driver);
+
         nyPage = new NYCareersPage(driver);
 
-        navigateTo(basicUrl);
         careersPage.navigateToNYLocations();
 
-        Assert.assertEquals(getURL(), basicUrl + "nyc");
+        Assert.assertEquals(getURL(), baseUrl + "nyc");
+
         Assert.assertEquals(nyPage.getHeadingText(), "New York");
     }
 
@@ -32,8 +31,8 @@ public class UITests extends ApplicationManager {
     public void searchFunctionalityTest() throws Exception {
         careersPage = new CareersMainPage(driver);
 
-        navigateTo(basicUrl);
         careersPage.search("QA ");
+
         String positionHeading = careersPage.getPositionHeading();
 
         Assert.assertEquals(positionHeading, "QA Automation Engineer");
@@ -42,13 +41,13 @@ public class UITests extends ApplicationManager {
     @Test(priority = 4)
     public void searchFunctionalityNegativeTest() {
         careersPage = new CareersMainPage(driver);
+
         String expectedErrorMessage = "No results matching your search!";
 
-
-        navigateTo(basicUrl);
         careersPage.search("dmldsnkfnkkn");
 
         String actualErrorMessage = careersPage.getErrorMessageText();
+
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
     }
 
@@ -56,7 +55,6 @@ public class UITests extends ApplicationManager {
     public void locationsDropDownTest() throws Exception {
         careersPage = new CareersMainPage(driver);
 
-        navigateTo(basicUrl);
         careersPage.selectLocationsDropDown(1);
 
         IntStream.range(0, careersPage.getAllPositionsLocationList().size()).forEach(i

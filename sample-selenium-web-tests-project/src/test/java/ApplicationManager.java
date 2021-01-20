@@ -9,14 +9,16 @@ public class ApplicationManager {
     WebDriver driver;
     CareersMainPage careersPage;
     NYCareersPage nyPage;
+    String baseUrl = "https://x.gloat.com/careers/";
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        navigateTo(baseUrl);
     }
 
-    void navigateTo(String url) {
+    private void navigateTo(String url) {
         driver.get(url);
     }
 

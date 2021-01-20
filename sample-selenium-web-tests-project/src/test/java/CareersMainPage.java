@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CareersMainPage extends PageObject {
     @FindBy(css = ".box-box.margin-bottom-xs-ng.border-radius-round")
-    private WebElement nyButton;
+    private WebElement nyImageButton;
 
     @FindBy(xpath = "//input[@placeholder='Search']")
     private WebElement searchField;
@@ -40,7 +40,7 @@ public class CareersMainPage extends PageObject {
     }
 
     void navigateToNYLocations() {
-        this.nyButton.click();
+        this.nyImageButton.click();
     }
 
     void search(String text) {

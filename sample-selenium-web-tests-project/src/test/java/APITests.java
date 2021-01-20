@@ -1,5 +1,8 @@
+import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
+
 public class APITests {
 
     @Test
@@ -15,9 +18,14 @@ public class APITests {
     }
 
     @Test
-    public void verifyInvalidURL() {
-        given().when().get("https://x.gloat.com/careers/4444")
-                .then().assertThat().statusCode(404);
+    public void verifyURLContentType() {
+        given().when().get("https://x.gloat.com/careers/all")
+                .then().assertThat().contentType(ContentType.HTML);
     }
 
+    @Test
+    public void verifyInvalidURL() {
+        given().when().get("https://x.gloat.com/@#$")
+                .then().assertThat().statusCode(404);
+    }
 }
