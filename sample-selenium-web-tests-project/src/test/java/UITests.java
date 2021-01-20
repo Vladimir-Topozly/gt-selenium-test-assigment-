@@ -1,5 +1,6 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.util.stream.IntStream;
 
 public class UITests extends ApplicationManager {
@@ -59,6 +60,6 @@ public class UITests extends ApplicationManager {
 
         IntStream.range(0, careersPage.getAllPositionsLocationList().size()).forEach(i ->
                 Assert.assertEquals(careersPage.getAllPositionsLocationList().get(i),
-                "New York, NY, USA"));
+                        "New York, NY, USA"));
     }
 }

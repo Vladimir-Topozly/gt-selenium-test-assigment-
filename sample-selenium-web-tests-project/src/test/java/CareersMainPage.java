@@ -26,14 +26,14 @@ public class CareersMainPage extends PageObject {
     @FindBy(css = ".box-box.sc-eHgmQL > div > div")
     private WebElement departmentsDropDown;
 
-    @FindBy(css="div.box-box.header.hidden-xs.flex.box-with-flex.flex-direction-column > h1")
+    @FindBy(css = "div.box-box.header.hidden-xs.flex.box-with-flex.flex-direction-column > h1")
     private WebElement heading;
 
-    @FindBy(css="body > div.react-tiny-popover-container > section")
+    @FindBy(css = "body > div.react-tiny-popover-container > section")
     private WebElement optionsContainer;
 
     @FindBy(css = "div.box-box.sc-cvbbAY.hnBfZS > div > h1")
-            private WebElement errorHeading;
+    private WebElement errorHeading;
 
     CareersMainPage(WebDriver driver) {
         super(driver);
@@ -54,11 +54,11 @@ public class CareersMainPage extends PageObject {
         return this.positionBox.getText();
     }
 
-    String getPageHeading(){
+    String getPageHeading() {
         return this.heading.getText();
     }
 
-    String getErrorMessageText(){
+    String getErrorMessageText() {
         return this.errorHeading.getText();
     }
 
