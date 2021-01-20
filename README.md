@@ -31,6 +31,7 @@ In order for the API tests to pass, you may need to set the VM property: -Dtestn
 
 
 ## UI tests list: 
+* `gt-selenium-test-assigment-/sample-selenium-web-tests-project/src/test/java/UITests.java`
 * openCareersPage
 * navigateToNYCareersPage
 * searchFunctionalityTest
@@ -38,6 +39,7 @@ In order for the API tests to pass, you may need to set the VM property: -Dtestn
 * locationsDropDownTest
 
 API tests list:
+* `gt-selenium-test-assigment-/sample-selenium-web-tests-project/src/test/java/APITests.java`
 * makeSureThePageIsUp
 * verifyURL
 * verifyInvalidURL
