@@ -57,8 +57,8 @@ public class UITests extends ApplicationManager {
 
         careersPage.selectLocationsDropDown(1);
 
-        IntStream.range(0, careersPage.getAllPositionsLocationList().size()).forEach(i
-                -> Assert.assertEquals(careersPage.getAllPositionsLocationList().get(i),
+        IntStream.range(0, careersPage.getAllPositionsLocationList().size()).forEach(i ->
+                Assert.assertEquals(careersPage.getAllPositionsLocationList().get(i),
                 "New York, NY, USA"));
     }
 }
