@@ -43,5 +43,6 @@ In order for the API tests to pass, you may need to set the VM property: -Dtestn
 * makeSureThePageIsUp
 * verifyURL
 * verifyInvalidURL
+* verifyURLContentType
 
 
