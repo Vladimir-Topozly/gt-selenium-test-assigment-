@@ -4,28 +4,33 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 public class APITests {
+    private String baseUrl = "https://x.gloat.com/";
+    private String endpoint = "careers";
+
 
     @Test
     public void makeSureThePageIsUp() {
-        given().when().get("https://x.gloat.com/careers/")
+        given().when().get(baseUrl + endpoint)
                 .then().assertThat().statusCode(200);
     }
 
     @Test
     public void verifyURL() {
-        given().when().get("https://x.gloat.com/careers/nyc")
+        endpoint = "careers/nyc";
+        given().when().get(baseUrl + endpoint)
                 .then().assertThat().statusCode(200);
     }
 
     @Test
     public void verifyURLContentType() {
-        given().when().get("https://x.gloat.com/careers/all")
+        given().when().get(baseUrl + endpoint)
                 .then().assertThat().contentType(ContentType.HTML);
     }
 
     @Test
     public void verifyInvalidURL() {
-        given().when().get("https://x.gloat.com/@#$")
+        endpoint = "@#$";
+        given().when().get(baseUrl + endpoint)
                 .then().assertThat().statusCode(404);
     }
 }
