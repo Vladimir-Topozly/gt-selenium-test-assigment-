@@ -38,7 +38,7 @@ In order for the API tests to pass, you may need to set the VM property: -Dtestn
 * searchFunctionalityNegativeTest
 * locationsDropDownTest
 
-API tests list:
+## API tests list:
 `gt-selenium-test-assigment-/sample-selenium-web-tests-project/src/test/java/APITests.java`
 * makeSureThePageIsUp
 * verifyURL
